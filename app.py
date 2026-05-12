@@ -177,7 +177,7 @@ st.markdown(f"""
 def carregar_dados(file_bytes, filename):
     """Carrega e processa a planilha de ressuprimento."""
     try:
-        df = pd.read_excel(file_bytes, sheet_name="new sheet", header=5, engine="openpyxl")
+        df = pd.read_excel(io.BytesIO(file_bytes), sheet_name="new sheet", header=5, engine="openpyxl")
     except Exception as e:
         return None, f"Erro ao ler 'new sheet': {e}"
 
